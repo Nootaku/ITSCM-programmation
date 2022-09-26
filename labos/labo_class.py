@@ -9,7 +9,8 @@ class Laboratoire:
             self.user_continue()
 
     def select_exercice(self):
-        print("\nMéhodes disponibles:")
+        print("--------------------")
+        print("\n    Veuillez choisir une méthode à exécuter:\n")
         methods = [
             i for i in inspect.getmembers(self, predicate=inspect.ismethod) if
             i[0] not in ["__init__", "select_exercice", "user_continue"]
@@ -18,7 +19,7 @@ class Laboratoire:
         for i, value in enumerate(methods):
             print(f"    {i}. {value[0]}")
 
-        chosen_exercice = input("\n\nQuel méthode souhaitez-vous exécuter ? - ")
+        chosen_exercice = input("\n\n --> Méthode choisie: ")
         print("\n===== Exécution =====")
         exec(f'print(self.{methods[int(chosen_exercice)][0]}())')
         print("=====================")

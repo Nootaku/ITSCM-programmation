@@ -2,10 +2,13 @@
 """
 
 from labos.labo_1 import Labo_1
+from labos.labo_2 import Labo_2
+
+
 def choose_labo():
-    print("""------------------------------
+    print("""----------------------------------
     PROGRAMMATION PROCEDURALE
-------------------------------
+----------------------------------
 
     Veuillez choisir le Labo:
 
@@ -17,10 +20,10 @@ def choose_labo():
 
     match labo:
         case "1":
-            test = Labo_1()
+            exercice = Labo_1()
 
         case "2":
-            print("Labo 2")
+            exercice = Labo_2()
 
         case other:
             print("Labo inconnu")

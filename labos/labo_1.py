@@ -52,8 +52,8 @@ Cette méthode sera nommée :  sortlist()
 exercices précédents.
 """
 import numpy as np
-from pprint import PrettyPrinter
 from labos.labo_class import Laboratoire
+from pprint import PrettyPrinter
 from random import randint
 
 pp = PrettyPrinter(indent=4).pprint
