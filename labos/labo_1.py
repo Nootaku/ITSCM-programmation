@@ -10,46 +10,49 @@ l'appel d'une fonction de classe.
 
 ENONCE DU LABO:
 ---------------
-1. Ecrire une méthode prenant en paramètre 2 entiers a et b, génère un nombre entier de
-manière « aléatoire » compris entre a et b, et le retourne.
+1. Ecrire une méthode prenant en paramètre 2 entiers a et b, génère un nombre
+entier de manière « aléatoire » compris entre a et b, et le retourne.
 Cette méthode sera nommée :  gennum()
 
-2. Ecrire une méthode qui créé une liste de nombres entiers générés à l’aide de la méthode
-gennum () et qui la retourne. Cette méthode sera nommée :  genlist()
+2. Ecrire une méthode qui créé une liste de nombres entiers générés à l'aide
+de la méthode gennum () et qui la retourne.
+Cette méthode sera nommée :  genlist()
 
-3. Écrire une méthode qui reçoit en paramètre une liste d’entiers et affiche son contenu.
+3. Écrire une méthode qui reçoit en paramètre une liste d'entiers et affiche
+son contenu.
 Cette méthode sera nommée :  printlist()
 
-4. Écrire une méthode qui reçoit en paramètre un nombre entier et qui vérifie si la valeur est
-paire ou impaire. Cette méthode retourne un booléen (true si paire et false si impaire).
+4. Écrire une méthode qui reçoit en paramètre un nombre entier et qui vérifie
+si la valeur est paire ou impaire. Cette méthode retourne un booléen (true si
+paire et false si impaire).
 Elle sera nommée :  ispair()
 
-5. Écrire une méthode qui reçoit en paramètre 2 listes d’entiers et qui retourne la valeur la plus
-grande de ces 2 listes. Cette méthode sera nommée :  maxnumber()
+5. Écrire une méthode qui reçoit en paramètre 2 listes d'entiers et qui
+retourne la valeur la plus grande de ces 2 listes.
+Cette méthode sera nommée :  maxnumber()
 
-6. Écrire une méthode qui reçoit en paramètre 2 listes d’entiers et qui retourne la valeur la plus
-petite de ces 2 listes. Cette méthode sera nommée :  minnumber()
+6. Écrire une méthode qui reçoit en paramètre 2 listes d'entiers et qui
+retourne la valeur la plus petite de ces 2 listes.
+Cette méthode sera nommée :  minnumber()
 
-7. Écrire une méthode qui reçoit en paramètre une liste d’entiers, copie ses éléments sauf les
-valeurs paires dans l’ordre inverse et la retourne.
+7. Écrire une méthode qui reçoit en paramètre une liste d'entiers, copie ses
+éléments sauf les valeurs paires dans l'ordre inverse et la retourne.
 Cette méthode sera nommée :  inverslist()
 
-8. Écrire une méthode qui reçoit en paramètre une dimension N et M, génère une liste
-d’entiers à 2 dimensions, la remplie à l’aide de la méthode gennum() et la retourne.
+8. Écrire une méthode qui reçoit en paramètre une dimension N et M, génère une
+liste d'entiers à 2 dimensions, la remplie à l'aide de la méthode gennum() et
+la retourne.
 Cette méthode sera nommée : genlist2d()
-Un exercice supplémentaire serait une variante de cet exercice avec genlist() au lieu de
-gennum().
 
-9. Écrire une méthode qui reçoit en paramètre une liste d’entiers à 2 dimensions, la convertit
-en une liste à 1 dimension via le module numpy et la retourne.
+9. Écrire une méthode qui reçoit en paramètre une liste d'entiers à 2
+dimensions, la convertit en une liste à 1 dimension via le module numpy et la
+retourne.
 Cette méthode sera nommée :  convto1d()
 
-10.  Écrire une méthode qui reçoit en paramètre une liste d’entiers et retourne une liste
-contenant uniquement les valeurs impaires triées dans l’ordre croissant.
+10.  Écrire une méthode qui reçoit en paramètre une liste d'entiers et
+retourne une liste contenant uniquement les valeurs impaires triées dans
+l'ordre croissant.
 Cette méthode sera nommée :  sortlist()
-
-11.  Écrire une méthode principale (si ce n’est pas déjà fait) et appeler toutes les méthodes des
-exercices précédents.
 """
 import numpy as np
 from labos.labo_class import Laboratoire
@@ -66,7 +69,6 @@ class Labo_1(Laboratoire):
         Par défaut a=0 et b=10
         """
         return randint(a, b)
-
 
     def genlist(self, n: int = 10) -> list[int]:
         """Retourne une liste de n nombres entiers générés à l'aide de
