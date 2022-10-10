@@ -4,6 +4,7 @@
 from labos.labo_1 import Labo_1
 from labos.labo_2 import Labo_2
 from labos.labo_3 import Labo_3
+from labos.labo_4 import Labo_4
 
 
 def choose_labo():
@@ -16,6 +17,7 @@ def choose_labo():
     1. Labo 1
     2. Labo 2
     3. Labo 3
+    4. Labo 4
     """)
 
     labo = input(" --> Labo choisi: ")
@@ -29,6 +31,9 @@ def choose_labo():
 
         case "3":
             Labo_3()
+
+        case "4":
+            Labo_4()
 
         case other:
             print("Labo inconnu")
