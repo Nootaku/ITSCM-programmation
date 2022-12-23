@@ -11,11 +11,14 @@ le prénom et l'âge à chaque ligne du fichier et chaque élément séparé par
 virgule.
 """
 import csv
+import zipfile
 from labos.labo_class import Laboratoire
+from pathlib import Path
 from pprint import PrettyPrinter
 
 pp = PrettyPrinter(indent=4).pprint
 db_path = "bdd/bdd.txt"
+fibo_path = 'files/fibo.txt'
 
 
 def get_user_data():
@@ -62,6 +65,29 @@ def get_data_from_db(path_to_db: str, username: str):
 					'firstname': row[3],
 					'age': row[4]
 				}
+
+
+def get_fibonacci_list(n: int):
+	"""Retourne une liste d'élément appartenant à la suite de fibonacci.
+	Le dernier élément de la liste aura une valeur supérieure à 'n'.
+	Tous les autres éléments de la liste auront une valeur inférieure à 'n'.
+	"""
+	current_value = 0
+	previous_value = 0
+
+	fibonacci_list = []
+
+	while current_value < n:
+		if current_value == 0:
+			current_value = 1
+		else:
+			current_sum = current_value + previous_value
+			previous_value = current_value
+			current_value = current_sum
+
+		fibonacci_list.append(current_value)
+
+	return fibonacci_list
 
 
 class Labo_6(Laboratoire):
@@ -116,3 +142,47 @@ class Labo_6(Laboratoire):
 		except Exception as e:
 			print(str(e))
 			return False
+
+	def fibonacci(self, n=30, path_to_file=fibo_path):
+		"""Ouvre un fichier et y écrit la suite de fibonacci.
+		Lorsque le dernier chiffre de la suite est suppérieur à 'n'
+		cette fonction s'arrête.
+		"""
+		fibonacci_list = get_fibonacci_list(n)
+		pp(fibonacci_list)
+
+		with open(path_to_file, "w") as file:
+			for i in fibonacci_list:
+				file.write(f'{i}\n')
+
+		return "Done"
+
+	def import_text_as_csv(self, path_to_db=db_path):
+		"""
+		"""
+		file_objects = []
+
+		with open(path_to_db) as db:
+			csv_reader = csv.reader(db)
+
+			for row in csv_reader:
+				file_objects.append(
+					{
+						'username': row[0],
+						'name': row[2],
+						'firstname': row[3],
+						'age': row[4]
+					}
+				)
+		
+		return file_objects
+
+	def zip_files(self, path_to_dir=Path(db_path).parent):
+		"""
+		"""
+		path_to_zip = Path('files/my_zip.zip')
+		with zipfile.ZipFile(path_to_zip, 'w') as my_zip:
+			for i in path_to_dir.iterdir():
+				my_zip.write(i)
+
+		return path_to_zip
